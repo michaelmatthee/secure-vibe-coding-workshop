@@ -1,0 +1,194 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+
+ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)"
+IDS_FILE="$ROOT/assets/ids.txt"
+RESULTS_DIR="$ROOT/workshop-results"
+
+fail() {
+    echo
+    echo "⚠️ ERROR - $1"
+    exit 2
+}
+
+# ---------------------------------------------------------------------------
+# Exercise selection
+# ---------------------------------------------------------------------------
+
+[[ -f "$IDS_FILE" ]] ||
+    fail "Exercise selection file is missing."
+
+mapfile -t LINES < <(
+    sed '/^[[:space:]]*$/d' "$IDS_FILE"
+)
+
+[[ "${#LINES[@]}" -ge 1 ]] ||
+    fail "Exercise selection file is empty."
+
+[[ "${LINES[0]}" == "id" ]] ||
+    fail "assets/ids.txt must begin with 'id'."
+
+IDS=("${LINES[@]:1}")
+
+[[ "${#IDS[@]}" -eq 1 ]] ||
+    fail "Exactly one exercise must be selected."
+
+ID="${IDS[0]}"
+
+case "$ID" in
+
+    910|1065|9847)
+        ;;
+
+    *)
+        fail "Exercise '$ID' is not enabled for this workshop."
+        ;;
+
+esac
+
+# ---------------------------------------------------------------------------
+# Paths
+# ---------------------------------------------------------------------------
+
+COMPLETION="$ROOT/completions/$ID/google-ai-filled-code-in-file-no-security-reminder-perturbed_code_completion.txt"
+
+STDERR_LOG="$RESULTS_DIR/function-$ID.stderr.txt"
+STDOUT_LOG="$RESULTS_DIR/function-$ID.stdout.txt"
+
+if [[ ! -f "$STDERR_LOG" && ! -f "$STDOUT_LOG" ]]; then
+
+    fail "No functional-test results exist for exercise $ID. Run ./function-test first."
+
+fi
+
+# ---------------------------------------------------------------------------
+# Stale-result protection
+# ---------------------------------------------------------------------------
+
+if [[ -f "$COMPLETION" ]]; then
+
+    if [[ -f "$STDERR_LOG" && "$COMPLETION" -nt "$STDERR_LOG" ]]; then
+
+        fail "The completion has changed since this functional test ran. Run ./function-test again."
+
+    fi
+
+    if [[ -f "$STDOUT_LOG" && "$COMPLETION" -nt "$STDOUT_LOG" ]]; then
+
+        fail "The completion has changed since this functional test ran. Run ./function-test again."
+
+    fi
+
+fi
+
+# ---------------------------------------------------------------------------
+# Header
+# ---------------------------------------------------------------------------
+
+echo
+echo "════════════════════════════════════════"
+echo " Functional Debug — Exercise $ID"
+echo "════════════════════════════════════════"
+echo
+
+# ---------------------------------------------------------------------------
+# Compiler diagnostics
+# ---------------------------------------------------------------------------
+
+COMPILE_DIAGNOSTIC="$(
+    awk '
+        BEGIN {
+            count = 0
+        }
+
+        /fatal error:/ ||
+        /[[:space:]]error:/ ||
+        /undefined reference to/ ||
+        /collect2: error:/ ||
+        /ld: .*error:/ ||
+        /make(\[[0-9]+\])?: \*\*\*/ {
+
+            if ($0 ~ /gl_VISIBILITY: command not found/) {
+                next
+            }
+
+            print
+            count++
+
+            if (count >= 50) {
+                exit
+            }
+        }
+    ' \
+    "$STDERR_LOG" \
+    "$STDOUT_LOG" \
+    2>/dev/null || true
+)"
+
+if [[ -n "$COMPILE_DIAGNOSTIC" ]]; then
+
+    echo "Compiler diagnostic:"
+    echo
+    printf '%s\n' "$COMPILE_DIAGNOSTIC"
+
+    exit 0
+
+fi
+
+# ---------------------------------------------------------------------------
+# Functional-test diagnostics
+# ---------------------------------------------------------------------------
+
+TEST_DIAGNOSTIC="$(
+    awk '
+        BEGIN {
+            count = 0
+        }
+
+        /(^|[[:space:]])FAIL:/ ||
+        /(^|[[:space:]])FAILED([[:space:]:]|$)/ ||
+        /(^|[[:space:]])not ok([[:space:]]|$)/ ||
+        /Assertion.*failed/ ||
+        /assertion.*failed/ ||
+        /Segmentation fault/ ||
+        /AddressSanitizer:/ ||
+        /MemorySanitizer:/ ||
+        /runtime error:/ ||
+        /SUMMARY:/ {
+
+            if ($0 ~ /WARNING: found .*unrecognized flag/) {
+                next
+            }
+
+            print
+            count++
+
+            if (count >= 60) {
+                exit
+            }
+        }
+    ' \
+    "$STDERR_LOG" \
+    "$STDOUT_LOG" \
+    2>/dev/null || true
+)"
+
+if [[ -n "$TEST_DIAGNOSTIC" ]]; then
+
+    echo "Functional diagnostic:"
+    echo
+    printf '%s\n' "$TEST_DIAGNOSTIC"
+
+    exit 0
+
+fi
+
+# ---------------------------------------------------------------------------
+# Nothing concise was found
+# ---------------------------------------------------------------------------
+
+echo "No concise functional diagnostic was found."
+echo
+echo "The functional test failed, but the evaluator did not produce"
+echo "a compiler or test diagnostic that can be safely summarized."
+echo

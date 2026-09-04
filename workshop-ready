@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+set -u
+
+fail=0
+
+ok() {
+    printf '✓ %s\n' "$1"
+}
+
+bad() {
+    printf '✗ %s\n' "$1"
+    fail=1
+}
+
+echo "Checking workshop environment..."
+
+if [ -x ".venv/bin/python" ]; then
+    ok "Python environment"
+else
+    bad "Python environment (.venv missing)"
+fi
+
+for command in exercise function-test function-debug security-test security-debug; do
+    if [ -x "$command" ]; then
+        ok "$command"
+    else
+        bad "$command is missing or not executable"
+    fi
+done
+
+if command -v docker >/dev/null 2>&1 && docker info >/dev/null 2>&1; then
+    ok "Docker runtime"
+else
+    bad "Docker runtime"
+fi
+
+images=(
+    "n132/arvo:1065-fix"
+    "n132/arvo:910-fix"
+    "n132/arvo:9847-fix"
+)
+
+for image in "${images[@]}"; do
+    if docker image inspect "$image" >/dev/null 2>&1; then
+        ok "$image"
+    else
+        bad "$image"
+    fi
+done
+
+echo
+
+if [ "$fail" -ne 0 ]; then
+    echo "Workshop environment is not ready yet."
+    exit 1
+fi
+
+echo "✓ Workshop environment ready"

@@ -1,0 +1,311 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+
+ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)"
+IDS_FILE="$ROOT/assets/ids.txt"
+RESULTS_DIR="$ROOT/workshop-results"
+
+fail() {
+    echo
+    echo "⚠️ ERROR - $1"
+    exit 2
+}
+
+# ---------------------------------------------------------------------------
+# Exercise selection
+# ---------------------------------------------------------------------------
+
+[[ -f "$IDS_FILE" ]] ||
+    fail "Exercise selection file is missing."
+
+mapfile -t LINES < <(
+    sed '/^[[:space:]]*$/d' "$IDS_FILE"
+)
+
+[[ "${#LINES[@]}" -ge 1 ]] ||
+    fail "Exercise selection file is empty."
+
+[[ "${LINES[0]}" == "id" ]] ||
+    fail "assets/ids.txt must begin with 'id'."
+
+IDS=("${LINES[@]:1}")
+
+[[ "${#IDS[@]}" -eq 1 ]] ||
+    fail "Exactly one exercise must be selected."
+
+ID="${IDS[0]}"
+
+case "$ID" in
+
+    910|1065|9847)
+        ;;
+
+    *)
+        fail "Exercise '$ID' is not enabled for this workshop."
+        ;;
+
+esac
+
+# ---------------------------------------------------------------------------
+# Paths
+# ---------------------------------------------------------------------------
+
+COMPLETION="$ROOT/completions/$ID/google-ai-filled-code-in-file-no-security-reminder-perturbed_code_completion.txt"
+
+STDERR_LOG="$RESULTS_DIR/security-$ID.stderr.txt"
+STDOUT_LOG="$RESULTS_DIR/security-$ID.stdout.txt"
+
+if [[ ! -f "$STDERR_LOG" && ! -f "$STDOUT_LOG" ]]; then
+
+    fail "No security-test results exist for exercise $ID. Run ./security-test first."
+
+fi
+
+# ---------------------------------------------------------------------------
+# Stale-result protection
+# ---------------------------------------------------------------------------
+
+if [[ -f "$COMPLETION" ]]; then
+
+    if [[ -f "$STDERR_LOG" && "$COMPLETION" -nt "$STDERR_LOG" ]]; then
+
+        fail "The completion has changed since this security test ran. Run ./security-test again."
+
+    fi
+
+    if [[ -f "$STDOUT_LOG" && "$COMPLETION" -nt "$STDOUT_LOG" ]]; then
+
+        fail "The completion has changed since this security test ran. Run ./security-test again."
+
+    fi
+
+fi
+
+# ---------------------------------------------------------------------------
+# Header
+# ---------------------------------------------------------------------------
+
+echo
+echo "════════════════════════════════════════"
+echo " Security Debug — Exercise $ID"
+echo "════════════════════════════════════════"
+echo
+
+# ---------------------------------------------------------------------------
+# Sanitizer diagnostics
+#
+# Do NOT dump raw evaluator stderr/stdout.
+#
+# Expose only:
+#   - sanitizer finding
+#   - initial stack
+#   - sanitizer summary
+#
+# Suppress:
+#   - Git checkout messages
+#   - fixing commits
+#   - build noise
+#   - origin-tracking clues such as pmatch
+# ---------------------------------------------------------------------------
+
+DIAGNOSTIC="$(
+    awk '
+        BEGIN {
+            capture_stack = 0
+            frames = 0
+        }
+
+        /Uninitialized value was stored to memory at/ {
+            capture_stack = 0
+            next
+        }
+
+        /Uninitialized value was created by/ {
+            capture_stack = 0
+            next
+        }
+
+        /was created by an allocation of/ {
+            capture_stack = 0
+            next
+        }
+
+        /was stored to memory at/ {
+            capture_stack = 0
+            next
+        }
+
+        /Origin.*uninitialized/ {
+            capture_stack = 0
+            next
+        }
+
+        /WARNING: MemorySanitizer:/ {
+            print
+            capture_stack = 1
+            frames = 0
+            next
+        }
+
+        /ERROR: AddressSanitizer:/ {
+            print
+            capture_stack = 1
+            frames = 0
+            next
+        }
+
+        /ERROR: LeakSanitizer:/ {
+            print
+            capture_stack = 1
+            frames = 0
+            next
+        }
+
+        /runtime error:/ {
+            print
+            capture_stack = 1
+            frames = 0
+            next
+        }
+
+        capture_stack &&
+        /^[[:space:]]*#[0-9]+[[:space:]]/ {
+
+            if (frames < 10) {
+                print
+            }
+
+            frames++
+            next
+        }
+
+        capture_stack &&
+        frames > 0 &&
+        /^[[:space:]]*$/ {
+
+            capture_stack = 0
+            next
+        }
+
+        /SUMMARY: MemorySanitizer:/ {
+            print
+            next
+        }
+
+        /SUMMARY: AddressSanitizer:/ {
+            print
+            next
+        }
+
+        /SUMMARY: LeakSanitizer:/ {
+            print
+            next
+        }
+
+        /SUMMARY: UndefinedBehaviorSanitizer:/ {
+            print
+            next
+        }
+    ' \
+    "$STDERR_LOG" \
+    "$STDOUT_LOG" \
+    2>/dev/null || true
+)"
+
+if [[ -n "$DIAGNOSTIC" ]]; then
+
+    echo "Security diagnostic:"
+    echo
+    printf '%s\n' "$DIAGNOSTIC"
+
+    echo
+    echo "The diagnostic shows where the security failure manifested."
+    echo "Use it to investigate the code and security assumptions."
+
+    exit 0
+
+fi
+
+# ---------------------------------------------------------------------------
+# Compilation diagnostics
+# ---------------------------------------------------------------------------
+
+COMPILE_DIAGNOSTIC="$(
+    awk '
+        BEGIN {
+            count = 0
+        }
+
+        /fatal error:/ ||
+        /[[:space:]]error:/ ||
+        /undefined reference to/ ||
+        /collect2: error:/ ||
+        /ld: .*error:/ ||
+        /make(\[[0-9]+\])?: \*\*\*/ {
+
+            if ($0 ~ /gl_VISIBILITY: command not found/) {
+                next
+            }
+
+            print
+            count++
+
+            if (count >= 40) {
+                exit
+            }
+        }
+    ' \
+    "$STDERR_LOG" \
+    "$STDOUT_LOG" \
+    2>/dev/null || true
+)"
+
+if [[ -n "$COMPILE_DIAGNOSTIC" ]]; then
+
+    echo "Compilation diagnostic:"
+    echo
+    printf '%s\n' "$COMPILE_DIAGNOSTIC"
+
+    exit 0
+
+fi
+
+# ---------------------------------------------------------------------------
+# Unclassified abnormal termination
+# ---------------------------------------------------------------------------
+
+ABNORMAL="$(
+    awk '
+        /Segmentation fault/ ||
+        /core dumped/ ||
+        /Aborted/ ||
+        /Killed/ {
+            print
+            exit
+        }
+    ' \
+    "$STDERR_LOG" \
+    "$STDOUT_LOG" \
+    2>/dev/null || true
+)"
+
+if [[ -n "$ABNORMAL" ]]; then
+
+    echo "Test harness diagnostic:"
+    echo
+    echo "The security test process terminated abnormally."
+    echo "No recognized sanitizer diagnostic was available."
+
+    exit 0
+
+fi
+
+# ---------------------------------------------------------------------------
+# Nothing safe/useful found
+# ---------------------------------------------------------------------------
+
+echo "No concise security diagnostic was found."
+echo
+echo "Raw evaluator output is intentionally not displayed because it may"
+echo "contain implementation or benchmark details that reveal the solution."
+echo

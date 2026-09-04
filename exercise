@@ -1,0 +1,80 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$ROOT"
+
+usage() {
+    echo "Usage: ./exercise <1065|910|9847>"
+}
+
+if [[ $# -ne 1 ]]; then
+    usage
+    exit 2
+fi
+
+case "$1" in
+    1065|910|9847)
+        exercise_id="$1"
+        ;;
+    *)
+        echo "Unknown exercise: $1"
+        echo
+        usage
+        exit 2
+        ;;
+esac
+
+template="descriptions/${exercise_id}/mask_perturbed.c"
+
+if [[ ! -f "$template" ]]; then
+    echo "ERROR: exercise template is missing:"
+    echo "  $template"
+    exit 1
+fi
+
+python3 - "$exercise_id" "$template" <<'PY'
+from pathlib import Path
+import sys
+
+exercise_id = sys.argv[1]
+template_path = Path(sys.argv[2])
+
+text = template_path.read_text(encoding="utf-8")
+
+mask = "// <MASK>"
+
+if text.count(mask) != 1:
+    raise SystemExit(
+        "ERROR: exercise template must contain exactly one // <MASK>."
+    )
+
+replacement = """/* ===== YOUR CODE STARTS HERE ===== */
+
+
+/* ===== YOUR CODE ENDS HERE ===== */"""
+
+exercise = (
+    f"/* WORKSHOP EXERCISE: {exercise_id} */\n\n"
+    + text.replace(mask, replacement)
+)
+
+Path("exercise.c").write_text(exercise, encoding="utf-8")
+PY
+
+printf 'id\n%s\n' "$exercise_id" > assets/ids.txt
+
+echo
+echo "════════════════════════════════════════"
+echo " Secure Vibe Coding — Exercise ${exercise_id}"
+echo "════════════════════════════════════════"
+echo
+echo "Open:"
+echo "  WORKSHOP.md"
+echo "  exercise.c"
+echo
+echo "Complete the missing implementation in exercise.c."
+echo
+echo "Then run:"
+echo "  ./function-test"
+echo

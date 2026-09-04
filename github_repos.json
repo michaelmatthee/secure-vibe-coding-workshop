@@ -1,0 +1,1531 @@
+[
+    {
+        "project": "pcapplusplus",
+        "repo_addr": "https://github.com/seladb/PcapPlusPlus"
+    },
+    {
+        "project": "bitcoin-core",
+        "repo_addr": "https://github.com/bitcoin/bitcoin.git",
+        "stars": 84723
+    },
+    {
+        "project": "opencv",
+        "repo_addr": "https://github.com/opencv/opencv.git",
+        "stars": 83210
+    },
+    {
+        "project": "cpython3",
+        "repo_addr": "https://github.com/python/cpython.git",
+        "stars": 68012
+    },
+    {
+        "project": "json",
+        "repo_addr": "https://github.com/nlohmann/json.git",
+        "stars": 46564
+    },
+    {
+        "project": "php-src",
+        "repo_addr": "https://github.com/php/php-src.git",
+        "stars": 39282
+    },
+    {
+        "project": "curl",
+        "repo_addr": "https://github.com/curl/curl.git",
+        "stars": 38386
+    },
+    {
+        "project": "tmux",
+        "repo_addr": "https://github.com/tmux/tmux.git",
+        "stars": 38242
+    },
+    {
+        "project": "llvm-project",
+        "repo_addr": "https://github.com/llvm/llvm-project.git",
+        "stars": 33638
+    },
+    {
+        "project": "stb",
+        "repo_addr": "https://github.com/nothings/stb.git",
+        "stars": 29429
+    },
+    {
+        "project": "openssl",
+        "repo_addr": "https://github.com/openssl/openssl.git",
+        "stars": 28022
+    },
+    {
+        "project": "envoy",
+        "repo_addr": "https://github.com/envoyproxy/envoy.git",
+        "stars": 26311
+    },
+    {
+        "project": "fmt",
+        "repo_addr": "https://github.com/fmtlib/fmt.git",
+        "stars": 22103
+    },
+    {
+        "project": "simdjson",
+        "repo_addr": "https://github.com/simdjson/simdjson.git",
+        "stars": 20887
+    },
+    {
+        "project": "uWebSockets",
+        "repo_addr": "https://github.com/uNetworking/uWebSockets.git",
+        "stars": 18132
+    },
+    {
+        "project": "upx",
+        "repo_addr": "https://github.com/upx/upx.git",
+        "stars": 16197
+    },
+    {
+        "project": "arrow",
+        "repo_addr": "https://github.com/apache/arrow.git",
+        "stars": 15745
+    },
+    {
+        "project": "rapidjson",
+        "repo_addr": "https://github.com/Tencent/rapidjson.git",
+        "stars": 14769
+    },
+    {
+        "project": "assimp",
+        "repo_addr": "https://github.com/assimp/assimp.git",
+        "stars": 12150
+    },
+    {
+        "project": "FreeRDP",
+        "repo_addr": "https://github.com/FreeRDP/FreeRDP.git",
+        "stars": 12000
+    },
+    {
+        "project": "lz4",
+        "repo_addr": "https://github.com/lz4/lz4.git",
+        "stars": 11148
+    },
+    {
+        "project": "libvips",
+        "repo_addr": "https://github.com/libvips/libvips.git",
+        "stars": 10505
+    },
+    {
+        "project": "hermes",
+        "repo_addr": "https://github.com/facebook/hermes.git",
+        "stars": 10408
+    },
+    {
+        "project": "libzmq",
+        "repo_addr": "https://github.com/zeromq/libzmq.git",
+        "stars": 10386
+    },
+    {
+        "project": "WasmEdge",
+        "repo_addr": "https://github.com/WasmEdge/WasmEdge.git",
+        "stars": 9958
+    },
+    {
+        "project": "yara",
+        "repo_addr": "https://github.com/VirusTotal/yara.git",
+        "stars": 8946
+    },
+    {
+        "project": "janus-gateway",
+        "repo_addr": "https://github.com/meetecho/janus-gateway.git",
+        "stars": 8726
+    },
+    {
+        "project": "unicorn",
+        "repo_addr": "https://github.com/unicorn-engine/unicorn.git",
+        "stars": 8354
+    },
+    {
+        "project": "wireshark",
+        "repo_addr": "https://github.com/wireshark/wireshark.git",
+        "stars": 8249
+    },
+    {
+        "project": "capstonenext",
+        "repo_addr": "https://github.com/aquynh/capstone.git",
+        "stars": 8161
+    },
+    {
+        "project": "capstonemaster",
+        "repo_addr": "https://github.com/aquynh/capstone.git",
+        "stars": 8161
+    },
+    {
+        "project": "arduinojson",
+        "repo_addr": "https://github.com/bblanchon/ArduinoJson.git",
+        "stars": 6986
+    },
+    {
+        "project": "ntopng",
+        "repo_addr": "https://github.com/ntop/ntopng.git",
+        "stars": 6970
+    },
+    {
+        "project": "firebase-ios-sdk",
+        "repo_addr": "https://github.com/firebase/firebase-ios-sdk.git",
+        "stars": 6287
+    },
+    {
+        "project": "zlib",
+        "repo_addr": "https://github.com/madler/zlib.git",
+        "stars": 6271
+    },
+    {
+        "project": "mbedtls",
+        "repo_addr": "https://github.com/ARMmbed/mbedtls.git",
+        "stars": 6020
+    },
+    {
+        "project": "mbedtls",
+        "repo_addr": "https://github.com/Mbed-TLS/mbedtls.git",
+        "stars": 6020
+    },
+    {
+        "project": "lwan",
+        "repo_addr": "https://github.com/lpereira/lwan.git",
+        "stars": 5975
+    },
+    {
+        "project": "fio",
+        "repo_addr": "https://github.com/axboe/fio.git",
+        "stars": 5729
+    },
+    {
+        "project": "clamav-devel",
+        "repo_addr": "https://github.com/Cisco-Talos/clamav-devel.git",
+        "stars": 5310
+    },
+    {
+        "project": "clamav",
+        "repo_addr": "https://github.com/Cisco-Talos/clamav.git",
+        "stars": 5310
+    },
+    {
+        "project": "bloaty",
+        "repo_addr": "https://github.com/google/bloaty.git",
+        "stars": 5121
+    },
+    {
+        "project": "libwebsockets",
+        "repo_addr": "https://github.com/warmcat/libwebsockets.git",
+        "stars": 5038
+    },
+    {
+        "project": "harfbuzz",
+        "repo_addr": "https://github.com/harfbuzz/harfbuzz.git",
+        "stars": 4803
+    },
+    {
+        "project": "wuffs",
+        "repo_addr": "https://github.com/google/wuffs.git",
+        "stars": 4598
+    },
+    {
+        "project": "libsass",
+        "repo_addr": "https://github.com/sass/libsass.git",
+        "stars": 4345
+    },
+    {
+        "project": "qpdf",
+        "repo_addr": "https://github.com/qpdf/qpdf.git",
+        "stars": 4140
+    },
+    {
+        "project": "ndpi",
+        "repo_addr": "https://github.com/ntop/nDPI.git",
+        "stars": 4116
+    },
+    {
+        "project": "openvswitch",
+        "repo_addr": "https://github.com/openvswitch/ovs.git",
+        "stars": 3774
+    },
+    {
+        "project": "libarchive",
+        "repo_addr": "https://github.com/libarchive/libarchive.git",
+        "stars": 3249
+    },
+    {
+        "project": "icu",
+        "repo_addr": "https://github.com/unicode-org/icu.git",
+        "stars": 3155
+    },
+    {
+        "project": "json-c",
+        "repo_addr": "https://github.com/json-c/json-c.git",
+        "stars": 3141
+    },
+    {
+        "project": "libjxl",
+        "repo_addr": "https://github.com/libjxl/libjxl.git",
+        "stars": 3042
+    },
+    {
+        "project": "rdkit",
+        "repo_addr": "https://github.com/rdkit/rdkit.git",
+        "stars": 3007
+    },
+    {
+        "project": "botan",
+        "repo_addr": "https://github.com/randombit/botan.git",
+        "stars": 2979
+    },
+    {
+        "project": "libpcap",
+        "repo_addr": "https://github.com/the-tcpdump-group/libpcap.git",
+        "stars": 2918
+    },
+    {
+        "project": "open62541",
+        "repo_addr": "https://github.com/open62541/open62541.git",
+        "stars": 2843
+    },
+    {
+        "project": "tidy-html5",
+        "repo_addr": "https://github.com/htacg/tidy-html5.git",
+        "stars": 2774
+    },
+    {
+        "project": "opus",
+        "repo_addr": "https://github.com/xiph/opus.git",
+        "stars": 2672
+    },
+    {
+        "project": "immer",
+        "repo_addr": "https://github.com/arximboldi/immer.git",
+        "stars": 2587
+    },
+    {
+        "project": "oniguruma",
+        "repo_addr": "https://github.com/kkos/oniguruma.git",
+        "stars": 2466
+    },
+    {
+        "project": "miniz",
+        "repo_addr": "https://github.com/richgel999/miniz.git",
+        "stars": 2444
+    },
+    {
+        "project": "freeradius-server",
+        "repo_addr": "https://github.com/FreeRADIUS/freeradius-server.git",
+        "stars": 2324
+    },
+    {
+        "project": "hunspell",
+        "repo_addr": "https://github.com/hunspell/hunspell.git",
+        "stars": 2297
+    },
+    {
+        "project": "tinygltf",
+        "repo_addr": "https://github.com/syoyo/tinygltf.git",
+        "stars": 2258
+    },
+    {
+        "project": "open5gs",
+        "repo_addr": "https://github.com/open5gs/open5gs.git",
+        "stars": 2134
+    },
+    {
+        "project": "flac",
+        "repo_addr": "https://github.com/xiph/flac.git",
+        "stars": 2012
+    },
+    {
+        "project": "libheif",
+        "repo_addr": "https://github.com/strukturag/libheif.git",
+        "stars": 1990
+    },
+    {
+        "project": "c-ares",
+        "repo_addr": "https://github.com/c-ares/c-ares.git",
+        "stars": 1979
+    },
+    {
+        "project": "leptonica",
+        "repo_addr": "https://github.com/DanBloomberg/leptonica.git",
+        "stars": 1939
+    },
+    {
+        "project": "proj.4",
+        "repo_addr": "https://github.com/OSGeo/proj.4",
+        "stars": 1873
+    },
+    {
+        "project": "libavif",
+        "repo_addr": "https://github.com/AOMediaCodec/libavif.git",
+        "stars": 1819
+    },
+    {
+        "project": "libsndfile",
+        "repo_addr": "https://github.com/erikd/libsndfile.git",
+        "stars": 1590
+    },
+    {
+        "project": "libsndfile",
+        "repo_addr": "https://github.com/libsndfile/libsndfile.git",
+        "stars": 1590
+    },
+    {
+        "project": "upb",
+        "repo_addr": "https://github.com/protocolbuffers/upb.git",
+        "stars": 1515
+    },
+    {
+        "project": "libpng",
+        "repo_addr": "https://github.com/glennrp/libpng.git",
+        "stars": 1443
+    },
+    {
+        "project": "libssh2",
+        "repo_addr": "https://github.com/libssh2/libssh2.git",
+        "stars": 1437
+    },
+    {
+        "project": "file",
+        "repo_addr": "https://github.com/file/file.git",
+        "stars": 1426
+    },
+    {
+        "project": "libass",
+        "repo_addr": "https://github.com/libass/libass.git",
+        "stars": 1028
+    },
+    {
+        "project": "c-blosc",
+        "repo_addr": "https://github.com/Blosc/c-blosc.git",
+        "stars": 1013
+    },
+    {
+        "project": "libzip",
+        "repo_addr": "https://github.com/nih-at/libzip.git",
+        "stars": 935
+    },
+    {
+        "project": "htslib",
+        "repo_addr": "https://github.com/samtools/htslib.git",
+        "stars": 864
+    },
+    {
+        "project": "libcoap",
+        "repo_addr": "https://github.com/obgm/libcoap.git",
+        "stars": 863
+    },
+    {
+        "project": "libspng",
+        "repo_addr": "https://github.com/randy408/libspng.git",
+        "stars": 791
+    },
+    {
+        "project": "hdf5",
+        "repo_addr": "https://github.com/HDFGroup/hdf5.git",
+        "stars": 770
+    },
+    {
+        "project": "brunsli",
+        "repo_addr": "https://github.com/google/brunsli.git",
+        "stars": 743
+    },
+    {
+        "project": "resiprocate",
+        "repo_addr": "https://github.com/resiprocate/resiprocate.git",
+        "stars": 662
+    },
+    {
+        "project": "lldpd",
+        "repo_addr": "https://github.com/lldpd/lldpd.git",
+        "stars": 660
+    },
+    {
+        "project": "lcms",
+        "repo_addr": "https://github.com/mm2/Little-CMS.git",
+        "stars": 637
+    },
+    {
+        "project": "libprotobuf-mutator",
+        "repo_addr": "https://github.com/google/libprotobuf-mutator.git",
+        "stars": 622
+    },
+    {
+        "project": "wolfmqtt",
+        "repo_addr": "https://github.com/wolfSSL/wolfMQTT.git",
+        "stars": 550
+    },
+    {
+        "project": "c-blosc2",
+        "repo_addr": "https://github.com/Blosc/c-blosc2.git",
+        "stars": 506
+    },
+    {
+        "project": "mcl",
+        "repo_addr": "https://github.com/herumi/mcl.git",
+        "stars": 500
+    },
+    {
+        "project": "relic",
+        "repo_addr": "https://github.com/relic-toolkit/relic.git",
+        "stars": 489
+    },
+    {
+        "project": "muparser",
+        "repo_addr": "https://github.com/beltoforion/muparser.git",
+        "stars": 464
+    },
+    {
+        "project": "wavpack",
+        "repo_addr": "https://github.com/dbry/WavPack.git",
+        "stars": 416
+    },
+    {
+        "project": "net-snmp",
+        "repo_addr": "https://github.com/net-snmp/net-snmp.git",
+        "stars": 408
+    },
+    {
+        "project": "librawspeed",
+        "repo_addr": "https://github.com/darktable-org/rawspeed.git",
+        "stars": 400
+    },
+    {
+        "project": "fribidi",
+        "repo_addr": "https://github.com/fribidi/fribidi.git",
+        "stars": 384
+    },
+    {
+        "project": "matio",
+        "repo_addr": "https://github.com/tbeu/matio.git",
+        "stars": 372
+    },
+    {
+        "project": "libical",
+        "repo_addr": "https://github.com/libical/libical.git",
+        "stars": 328
+    },
+    {
+        "project": "ots",
+        "repo_addr": "https://github.com/khaledhosny/ots.git",
+        "stars": 283
+    },
+    {
+        "project": "aspell",
+        "repo_addr": "https://github.com/gnuaspell/aspell.git",
+        "stars": 258
+    },
+    {
+        "project": "centipede",
+        "repo_addr": "https://github.com/google/centipede.git",
+        "stars": 252
+    },
+    {
+        "project": "qpid-proton",
+        "repo_addr": "https://github.com/apache/qpid-proton.git",
+        "stars": 234
+    },
+    {
+        "project": "libultrahdr",
+        "repo_addr": "https://github.com/google/libultrahdr.git",
+        "stars": 231
+    },
+    {
+        "project": "rnp",
+        "repo_addr": "https://github.com/rnpgp/rnp.git",
+        "stars": 214
+    },
+    {
+        "project": "libpsl",
+        "repo_addr": "https://github.com/rockdaboot/libpsl.git",
+        "stars": 191
+    },
+    {
+        "project": "p11-kit",
+        "repo_addr": "https://github.com/p11-glue/p11-kit.git",
+        "stars": 162
+    },
+    {
+        "project": "extra-cmake-modules",
+        "repo_addr": "https://github.com/KDE/extra-cmake-modules.git",
+        "stars": 145
+    },
+    {
+        "project": "libspdm",
+        "repo_addr": "https://github.com/DMTF/libspdm.git",
+        "stars": 140
+    },
+    {
+        "project": "karchive",
+        "repo_addr": "https://github.com/KDE/karchive.git",
+        "stars": 58
+    },
+    {
+        "project": "unrar",
+        "repo_addr": "https://github.com/aawc/unrar.git",
+        "stars": 55
+    },
+    {
+        "project": "libxaac",
+        "repo_addr": "https://github.com/ittiam-systems/libxaac.git",
+        "stars": 54
+    },
+    {
+        "project": "clamav-fuzz-corpus",
+        "repo_addr": "https://github.com/Cisco-Talos/clamav-fuzz-corpus.git",
+        "stars": 32
+    },
+    {
+        "project": "kimageformats",
+        "repo_addr": "https://github.com/KDE/kimageformats.git",
+        "stars": 25
+    },
+    {
+        "project": "hoextdown",
+        "repo_addr": "https://github.com/kjdev/hoextdown.git",
+        "stars": 22
+    },
+    {
+        "project": "libavc",
+        "repo_addr": "https://github.com/ittiam-systems/libavc.git",
+        "stars": 12
+    },
+    {
+        "project": "libhevc",
+        "repo_addr": "https://github.com/ittiam-systems/libhevc.git",
+        "stars": 5
+    },
+    {
+        "project": "ghostpdl",
+        "repo_addr": "git://git.ghostscript.com/ghostpdl.git",
+        "stars": -1
+    },
+    {
+        "project": "libraw",
+        "repo_addr": "https://github.com/libraw/libraw",
+        "stars": 1282
+    },
+    {
+        "project": "imagemagick",
+        "repo_addr": "https://github.com/imagemagick/imagemagick",
+        "stars": 14044
+    },
+    {
+        "project": "skia",
+        "repo_addr": "https://skia.googlesource.com/skia.git",
+        "stars": -1
+    },
+    {
+        "project": "fluent-bit",
+        "repo_addr": "https://github.com/fluent/fluent-bit/",
+        "stars": 7083
+    },
+    {
+        "project": "boringssl",
+        "repo_addr": "https://boringssl.googlesource.com/boringssl",
+        "stars": -1
+    },
+    {
+        "project": "gpac",
+        "repo_addr": "https://github.com/gpac/gpac",
+        "stars": 3055
+    },
+    {
+        "project": "duckdb",
+        "repo_addr": "https://github.com/duckdb/duckdb",
+        "stars": 31175
+    },
+    {
+        "project": "openthread",
+        "repo_addr": "https://github.com/openthread/openthread",
+        "stars": 3694
+    },
+    {
+        "project": "binutils-gdb",
+        "repo_addr": "git://sourceware.org/git/binutils-gdb.git",
+        "stars": -1
+    },
+    {
+        "project": "matio",
+        "repo_addr": "git://git.code.sf.net/p/matio/matio",
+        "stars": -1
+    },
+    {
+        "project": "opensc",
+        "repo_addr": "https://github.com/OpenSC/OpenSC",
+        "stars": 2787
+    },
+    {
+        "project": "libdwarf",
+        "repo_addr": "https://github.com/davea42/libdwarf-code",
+        "stars": 214
+    },
+    {
+        "project": "mupdf",
+        "repo_addr": "git://git.ghostscript.com/mupdf.git",
+        "stars": -1
+    },
+    {
+        "project": "gdal",
+        "repo_addr": "https://github.com/OSGeo/gdal",
+        "stars": 5414
+    },
+    {
+        "project": "systemd",
+        "repo_addr": "https://github.com/systemd/systemd",
+        "stars": 14412
+    },
+    {
+        "project": "poppler",
+        "repo_addr": "https://anongit.freedesktop.org/git/poppler/poppler.git",
+        "stars": -1
+    },
+    {
+        "project": "graphicsmagick",
+        "repo_addr": "https://foss.heptapod.net/graphicsmagick/graphicsmagick",
+        "stars": -1
+    },
+    {
+        "project": "poppler",
+        "repo_addr": "https://gitlab.freedesktop.org/poppler/poppler.git",
+        "stars": -1
+    },
+    {
+        "project": "samba",
+        "repo_addr": "https://gitlab.com/samba-team/samba",
+        "stars": 92
+    },
+    {
+        "project": "igraph",
+        "repo_addr": "https://github.com/igraph/igraph",
+        "stars": 1852
+    },
+    {
+        "project": "flatbuffers",
+        "repo_addr": "https://github.com/google/flatbuffers",
+        "stars": 24514
+    },
+    {
+        "project": "PcapPlusPlus",
+        "repo_addr": "https://github.com/seladb/PcapPlusPlus",
+        "stars": 2950
+    },
+    {
+        "project": "sleuthkit",
+        "repo_addr": "https://github.com/sleuthkit/sleuthkit",
+        "stars": 2836
+    },
+    {
+        "project": "libxml2",
+        "repo_addr": "https://gitlab.gnome.org/GNOME/libxml2.git",
+        "stars": -1
+    },
+    {
+        "project": "dav1d",
+        "repo_addr": "https://code.videolan.org/videolan/dav1d.git",
+        "stars": -1
+    },
+    {
+        "project": "selinux",
+        "repo_addr": "https://github.com/SELinuxProject/selinux",
+        "stars": 1438
+    },
+    {
+        "project": "espeak-ng",
+        "repo_addr": "https://github.com/espeak-ng/espeak-ng",
+        "stars": 5313
+    },
+    {
+        "project": "wolfssl",
+        "repo_addr": "https://github.com/wolfssl/wolfssl",
+        "stars": 2559
+    },
+    {
+        "project": "jsoncpp",
+        "repo_addr": "https://github.com/open-source-parsers/jsoncpp",
+        "stars": 8612
+    },
+    {
+        "project": "ffmpeg",
+        "repo_addr": "https://git.ffmpeg.org/ffmpeg.git",
+        "stars": -1
+    },
+    {
+        "project": "libhevc",
+        "repo_addr": "https://android.googlesource.com/platform/external/libhevc",
+        "stars": -1
+    },
+    {
+        "project": "mruby",
+        "repo_addr": "https://github.com/mruby/mruby",
+        "stars": 5394
+    },
+    {
+        "project": "libvips",
+        "repo_addr": "https://github.com/libvips/libvips",
+        "stars": 10505
+    },
+    {
+        "project": "openexr",
+        "repo_addr": "https://github.com/AcademySoftwareFoundation/openexr",
+        "stars": 1712
+    },
+    {
+        "project": "libavc",
+        "repo_addr": "https://android.googlesource.com/platform/external/libavc",
+        "stars": -1
+    },
+    {
+        "project": "quickjs",
+        "repo_addr": "https://github.com/bellard/quickjs",
+        "stars": 9414
+    },
+    {
+        "project": "serenity",
+        "repo_addr": "https://github.com/SerenityOS/serenity",
+        "stars": 32067
+    },
+    {
+        "project": "gnutls",
+        "repo_addr": "https://gitlab.com/gnutls/gnutls.git",
+        "stars": 318
+    },
+    {
+        "project": "pcl",
+        "repo_addr": "https://github.com/PointCloudLibrary/pcl",
+        "stars": 10514
+    },
+    {
+        "project": "zstd",
+        "repo_addr": "https://github.com/facebook/zstd",
+        "stars": 25343
+    },
+    {
+        "project": "MapServer",
+        "repo_addr": "https://github.com/MapServer/MapServer",
+        "stars": 1119
+    },
+    {
+        "project": "jbig2dec",
+        "repo_addr": "git://git.ghostscript.com/jbig2dec.git",
+        "stars": -1
+    },
+    {
+        "project": "libredwg",
+        "repo_addr": "https://github.com/LibreDWG/libredwg",
+        "stars": 1171
+    },
+    {
+        "project": "sudo",
+        "repo_addr": "https://github.com/sudo-project/sudo",
+        "stars": 1339
+    },
+    {
+        "project": "expat",
+        "repo_addr": "https://github.com/libexpat/libexpat",
+        "stars": 1220
+    },
+    {
+        "project": "radare2",
+        "repo_addr": "https://github.com/radare/radare2",
+        "stars": 21985
+    },
+    {
+        "project": "libssh",
+        "repo_addr": "https://git.libssh.org/projects/libssh.git",
+        "stars": -1
+    },
+    {
+        "project": "aom",
+        "repo_addr": "https://aomedia.googlesource.com/aom",
+        "stars": -1
+    },
+    {
+        "project": "qt",
+        "repo_addr": "git://code.qt.io/qt/qt5.git",
+        "stars": -1
+    },
+    {
+        "project": "zeek",
+        "repo_addr": "https://github.com/zeek/zeek",
+        "stars": 7021
+    },
+    {
+        "project": "readstat",
+        "repo_addr": "https://github.com/WizardMac/ReadStat",
+        "stars": 288
+    },
+    {
+        "project": "tpm2",
+        "repo_addr": "https://chromium.googlesource.com/chromiumos/third_party/tpm2",
+        "stars": -1
+    },
+    {
+        "project": "h3",
+        "repo_addr": "https://github.com/uber/h3",
+        "stars": 5423
+    },
+    {
+        "project": "wasm3",
+        "repo_addr": "https://github.com/wasm3/wasm3",
+        "stars": 7634
+    },
+    {
+        "project": "wabt",
+        "repo_addr": "https://github.com/WebAssembly/wabt",
+        "stars": 7454
+    },
+    {
+        "project": "libmpeg2",
+        "repo_addr": "https://android.googlesource.com/platform/external/libmpeg2",
+        "stars": -1
+    },
+    {
+        "project": "picotls",
+        "repo_addr": "https://github.com/h2o/picotls",
+        "stars": 572
+    },
+    {
+        "project": "libexif",
+        "repo_addr": "https://github.com/libexif/libexif",
+        "stars": 340
+    },
+    {
+        "project": "krb5",
+        "repo_addr": "https://github.com/krb5/krb5",
+        "stars": 560
+    },
+    {
+        "project": "moddable",
+        "repo_addr": "https://github.com/Moddable-OpenSource/moddable",
+        "stars": 1410
+    },
+    {
+        "project": "ostree",
+        "repo_addr": "https://github.com/ostreedev/ostree",
+        "stars": 1459
+    },
+    {
+        "project": "perfetto",
+        "repo_addr": "https://android.googlesource.com/platform/external/perfetto/",
+        "stars": -1
+    },
+    {
+        "project": "hdf5",
+        "repo_addr": "https://github.com/HDFGroup/hdf5",
+        "stars": 770
+    },
+    {
+        "project": "libucl",
+        "repo_addr": "https://github.com/vstakhov/libucl",
+        "stars": 1677
+    },
+    {
+        "project": "elfutils",
+        "repo_addr": "git://sourceware.org/git/elfutils.git",
+        "stars": -1
+    },
+    {
+        "project": "alembic",
+        "repo_addr": "https://github.com/alembic/alembic",
+        "stars": 1099
+    },
+    {
+        "project": "radare2",
+        "repo_addr": "https://github.com/radareorg/radare2",
+        "stars": 21985
+    },
+    {
+        "project": "util-linux",
+        "repo_addr": "https://github.com/util-linux/util-linux",
+        "stars": 2926
+    },
+    {
+        "project": "openjpeg",
+        "repo_addr": "https://github.com/uclouvain/openjpeg",
+        "stars": 1037
+    },
+    {
+        "project": "haproxy",
+        "repo_addr": "https://github.com/haproxy/haproxy",
+        "stars": 5801
+    },
+    {
+        "project": "usrsctp",
+        "repo_addr": "https://github.com/weinrank/usrsctp",
+        "stars": 0
+    },
+    {
+        "project": "libgit2",
+        "repo_addr": "https://github.com/libgit2/libgit2",
+        "stars": 10055
+    },
+    {
+        "project": "pcre2",
+        "repo_addr": "https://github.com/PCRE2Project/pcre2",
+        "stars": 1079
+    },
+    {
+        "project": "libxslt",
+        "repo_addr": "https://gitlab.gnome.org/GNOME/libxslt.git",
+        "stars": -1
+    },
+    {
+        "project": "ClickHouse",
+        "repo_addr": "https://github.com/ClickHouse/ClickHouse",
+        "stars": 41888
+    },
+    {
+        "project": "dropbear",
+        "repo_addr": "https://hg.ucc.asn.au/dropbear",
+        "stars": -1
+    },
+    {
+        "project": "libspectre",
+        "repo_addr": "https://gitlab.freedesktop.org/libspectre/libspectre.git",
+        "stars": -1
+    },
+    {
+        "project": "opensips",
+        "repo_addr": "https://github.com/OpenSIPS/opensips",
+        "stars": 1376
+    },
+    {
+        "project": "glog",
+        "repo_addr": "https://github.com/google/glog",
+        "stars": 7320
+    },
+    {
+        "project": "libjpeg-turbo.main",
+        "repo_addr": "https://github.com/libjpeg-turbo/libjpeg-turbo",
+        "stars": 4000
+    },
+    {
+        "project": "libvpx",
+        "repo_addr": "https://chromium.googlesource.com/webm/libvpx",
+        "stars": -1
+    },
+    {
+        "project": "tarantool",
+        "repo_addr": "https://github.com/tarantool/tarantool",
+        "stars": 3521
+    },
+    {
+        "project": "mongoose",
+        "repo_addr": "https://github.com/cesanta/mongoose",
+        "stars": 11988
+    },
+    {
+        "project": "mosquitto",
+        "repo_addr": "https://github.com/eclipse/mosquitto",
+        "stars": 9949
+    },
+    {
+        "project": "mysql-server",
+        "repo_addr": "https://github.com/mysql/mysql-server",
+        "stars": 11551
+    },
+    {
+        "project": "cryptofuzz",
+        "repo_addr": "https://github.com/guidovranken/cryptofuzz",
+        "stars": -1
+    },
+    {
+        "project": "libreoffice",
+        "repo_addr": "git://anongit.freedesktop.org/libreoffice/core",
+        "stars": -1
+    },
+    {
+        "project": "vlc",
+        "repo_addr": "https://github.com/videolan/vlc",
+        "stars": 15955
+    },
+    {
+        "project": "grpc",
+        "repo_addr": "https://github.com/grpc/grpc",
+        "stars": 43365
+    },
+    {
+        "project": "libplist",
+        "repo_addr": "https://github.com/libimobiledevice/libplist",
+        "stars": 583
+    },
+    {
+        "project": "libjpeg-turbo",
+        "repo_addr": "https://github.com/libjpeg-turbo/libjpeg-turbo",
+        "stars": 4000
+    },
+    {
+        "project": "pjsip",
+        "repo_addr": "https://github.com/pjsip/pjproject",
+        "stars": 2377
+    },
+    {
+        "project": "tor",
+        "repo_addr": "https://git.torproject.org/tor.git",
+        "stars": -1
+    },
+    {
+        "project": "wget2",
+        "repo_addr": "https://gitlab.com/gnuwget/wget2.git",
+        "stars": 407
+    },
+    {
+        "project": "spice-usbredir",
+        "repo_addr": "https://gitlab.freedesktop.org/spice/usbredir.git",
+        "stars": 1
+    },
+    {
+        "project": "freetype2",
+        "repo_addr": "git://git.sv.nongnu.org/freetype/freetype2.git",
+        "stars": -1
+    },
+    {
+        "project": "gpsd",
+        "repo_addr": "https://gitlab.com/gpsd/gpsd",
+        "stars": 93
+    },
+    {
+        "project": "njs",
+        "repo_addr": "http://hg.nginx.org/njs",
+        "stars": -1
+    },
+    {
+        "project": "faad2",
+        "repo_addr": "https://github.com/knik0/faad2",
+        "stars": 192
+    },
+    {
+        "project": "libwebp",
+        "repo_addr": "https://chromium.googlesource.com/webm/libwebp",
+        "stars": -1
+    },
+    {
+        "project": "tint",
+        "repo_addr": "https://dawn.googlesource.com/tint",
+        "stars": -1
+    },
+    {
+        "project": "simdutf",
+        "repo_addr": "https://github.com/simdutf/simdutf",
+        "stars": 1433
+    },
+    {
+        "project": "kamailio",
+        "repo_addr": "https://github.com/kamailio/kamailio",
+        "stars": 2522
+    },
+    {
+        "project": "libspng",
+        "repo_addr": "https://gitlab.com/randy408/libspng.git",
+        "stars": 15
+    },
+    {
+        "project": "dnsmasq",
+        "repo_addr": "git://thekelleys.org.uk/dnsmasq.git",
+        "stars": -1
+    },
+    {
+        "project": "draco",
+        "repo_addr": "https://github.com/google/draco",
+        "stars": 6851
+    },
+    {
+        "project": "lldpd",
+        "repo_addr": "https://github.com/lldpd/lldpd/",
+        "stars": 660
+    },
+    {
+        "project": "md4c",
+        "repo_addr": "https://github.com/mity/md4c",
+        "stars": 1046
+    },
+    {
+        "project": "gstreamer",
+        "repo_addr": "https://anongit.freedesktop.org/git/gstreamer/gstreamer",
+        "stars": -1
+    },
+    {
+        "project": "coturn",
+        "repo_addr": "https://github.com/coturn/coturn",
+        "stars": 12699
+    },
+    {
+        "project": "valijson",
+        "repo_addr": "https://github.com/tristanpenman/valijson",
+        "stars": 386
+    },
+    {
+        "project": "mdbtools",
+        "repo_addr": "https://github.com/mdbtools/mdbtools",
+        "stars": 1081
+    },
+    {
+        "project": "wpantund",
+        "repo_addr": "https://github.com/openthread/wpantund",
+        "stars": 176
+    },
+    {
+        "project": "libtiff",
+        "repo_addr": "https://gitlab.com/libtiff/libtiff",
+        "stars": 90
+    },
+    {
+        "project": "Simd",
+        "repo_addr": "https://github.com/ermig1979/Simd",
+        "stars": 2182
+    },
+    {
+        "project": "libiec61850",
+        "repo_addr": "https://github.com/mz-automation/libiec61850",
+        "stars": 1004
+    },
+    {
+        "project": "exiv2",
+        "repo_addr": "https://github.com/Exiv2/exiv2",
+        "stars": 1026
+    },
+    {
+        "project": "irssi",
+        "repo_addr": "https://github.com/irssi/irssi",
+        "stars": 2979
+    },
+    {
+        "project": "libbpf",
+        "repo_addr": "https://github.com/libbpf/libbpf",
+        "stars": 2448
+    },
+    {
+        "project": "h2o",
+        "repo_addr": "https://github.com/h2o/h2o",
+        "stars": 11158
+    },
+    {
+        "project": "aac",
+        "repo_addr": "https://android.googlesource.com/platform/external/aac/",
+        "stars": -1
+    },
+    {
+        "project": "trafficserver",
+        "repo_addr": "https://github.com/apache/trafficserver",
+        "stars": 1884
+    },
+    {
+        "project": "freeimage-svn",
+        "repo_addr": "https://svn.code.sf.net/p/freeimage/svn",
+        "stars": -1
+    },
+    {
+        "project": "binutils-preconditions",
+        "repo_addr": "https://github.com/DavidKorczynski/binutils-preconditions",
+        "stars": 0
+    },
+    {
+        "project": "qtqa",
+        "repo_addr": "git://code.qt.io/qt/qtqa.git",
+        "stars": -1
+    },
+    {
+        "project": "oss-fuzz-example",
+        "repo_addr": "https://github.com/AdaLogics/oss-fuzz-example",
+        "stars": 8
+    },
+    {
+        "project": "lxc",
+        "repo_addr": "https://github.com/lxc/lxc",
+        "stars": 4925
+    },
+    {
+        "project": "qt/qtqa",
+        "repo_addr": "git://code.qt.io/qt/qtqa.git",
+        "stars": -1
+    },
+    {
+        "project": "postgis",
+        "repo_addr": "https://git.osgeo.org/gogs/postgis/postgis.git",
+        "stars": -1
+    },
+    {
+        "project": "skcms",
+        "repo_addr": "https://skia.googlesource.com/skcms.git",
+        "stars": -1
+    },
+    {
+        "project": "node",
+        "repo_addr": "https://github.com/nodejs/node",
+        "stars": 112333
+    },
+    {
+        "project": "jq",
+        "repo_addr": "https://github.com/jqlang/jq",
+        "stars": 32253
+    },
+    {
+        "project": "re2",
+        "repo_addr": "https://code.googlesource.com/re2",
+        "stars": -1
+    },
+    {
+        "project": "gnupg",
+        "repo_addr": "git://git.gnupg.org/gnupg.git",
+        "stars": -1
+    },
+    {
+        "project": "net-snmp",
+        "repo_addr": "https://github.com/net-snmp/net-snmp",
+        "stars": 408
+    },
+    {
+        "project": "glib",
+        "repo_addr": "https://gitlab.gnome.org/GNOME/glib",
+        "stars": 2
+    },
+    {
+        "project": "cyclonedds",
+        "repo_addr": "https://github.com/eclipse-cyclonedds/cyclonedds",
+        "stars": 1015
+    },
+    {
+        "project": "lua",
+        "repo_addr": "https://github.com/lua/lua",
+        "stars": 9256
+    },
+    {
+        "project": "knot-dns",
+        "repo_addr": "https://gitlab.labs.nic.cz/knot/knot-dns",
+        "stars": -1
+    },
+    {
+        "project": "osquery",
+        "repo_addr": "https://github.com/osquery/osquery",
+        "stars": 22615
+    },
+    {
+        "project": "tcmalloc",
+        "repo_addr": "https://github.com/google/tcmalloc",
+        "stars": 4832
+    },
+    {
+        "project": "gstreamer",
+        "repo_addr": "https://gitlab.freedesktop.org/gstreamer/gstreamer.git",
+        "stars": 1
+    },
+    {
+        "project": "libidn2",
+        "repo_addr": "https://gitlab.com/libidn/libidn2.git",
+        "stars": 10
+    },
+    {
+        "project": "pigweed",
+        "repo_addr": "https://pigweed.googlesource.com/pigweed/pigweed",
+        "stars": -1
+    },
+    {
+        "project": "hostap",
+        "repo_addr": "git://w1.fi/srv/git/hostap.git",
+        "stars": -1
+    },
+    {
+        "project": "usrsctp",
+        "repo_addr": "https://github.com/sctplab/usrsctp",
+        "stars": 718
+    },
+    {
+        "project": "bind9",
+        "repo_addr": "https://gitlab.isc.org/isc-projects/bind9.git",
+        "stars": 3
+    },
+    {
+        "project": "croaring",
+        "repo_addr": "https://github.com/RoaringBitmap/CRoaring",
+        "stars": 1661
+    },
+    {
+        "project": "S2OPC",
+        "repo_addr": "https://gitlab.com/systerel/S2OPC",
+        "stars": 33
+    },
+    {
+        "project": "python-library-fuzzers",
+        "repo_addr": "https://github.com/guidovranken/python-library-fuzzers.git",
+        "stars": -1
+    },
+    {
+        "project": "qemu",
+        "repo_addr": "https://git.qemu.org/git/qemu.git",
+        "stars": -1
+    },
+    {
+        "project": "libjpeg-turbo.dev",
+        "repo_addr": "https://github.com/libjpeg-turbo/libjpeg-turbo",
+        "stars": 4000
+    },
+    {
+        "project": "nginx",
+        "repo_addr": "http://hg.nginx.org/nginx/",
+        "stars": -1
+    },
+    {
+        "project": "tinyxml2",
+        "repo_addr": "https://github.com/leethomason/tinyxml2",
+        "stars": 5409
+    },
+    {
+        "project": "oss-fuzz-bloat",
+        "repo_addr": "https://github.com/0x34d/oss-fuzz-bloat",
+        "stars": 1
+    },
+    {
+        "project": "librabbitmq",
+        "repo_addr": "https://github.com/alanxz/rabbitmq-c",
+        "stars": 1825
+    },
+    {
+        "project": "e2fsprogs",
+        "repo_addr": "https://github.com/tytso/e2fsprogs",
+        "stars": 415
+    },
+    {
+        "project": "jsoncons",
+        "repo_addr": "https://github.com/danielaparker/jsoncons",
+        "stars": 788
+    },
+    {
+        "project": "Little-CMS",
+        "repo_addr": "https://github.com/mm2/Little-CMS",
+        "stars": 637
+    },
+    {
+        "project": "libjpeg-turbo.2.1.x",
+        "repo_addr": "https://github.com/libjpeg-turbo/libjpeg-turbo",
+        "stars": 4000
+    },
+    {
+        "project": "dawn",
+        "repo_addr": "https://dawn.googlesource.com/dawn",
+        "stars": -1
+    },
+    {
+        "project": "tesseract",
+        "repo_addr": "https://github.com/tesseract-ocr/tesseract",
+        "stars": 68377
+    },
+    {
+        "project": "libgd",
+        "repo_addr": "https://github.com/libgd/libgd",
+        "stars": 938
+    },
+    {
+        "project": "net-snmp",
+        "repo_addr": "git://git.code.sf.net/p/net-snmp/code",
+        "stars": -1
+    },
+    {
+        "project": "dovecot",
+        "repo_addr": "https://github.com/dovecot/core",
+        "stars": 1085
+    },
+    {
+        "project": "ntpsec",
+        "repo_addr": "https://gitlab.com/NTPsec/ntpsec",
+        "stars": 153
+    },
+    {
+        "project": "libsrtp",
+        "repo_addr": "https://github.com/cisco/libsrtp",
+        "stars": 1307
+    },
+    {
+        "project": "s2geometry",
+        "repo_addr": "https://github.com/google/s2geometry",
+        "stars": 2484
+    },
+    {
+        "project": "libtpms",
+        "repo_addr": "https://github.com/stefanberger/libtpms",
+        "stars": 240
+    },
+    {
+        "project": "geos",
+        "repo_addr": "https://git.osgeo.org/gitea/geos/geos.git",
+        "stars": -1
+    },
+    {
+        "project": "hiredis",
+        "repo_addr": "https://github.com/redis/hiredis",
+        "stars": 6454
+    },
+    {
+        "project": "libusb",
+        "repo_addr": "https://github.com/libusb/libusb",
+        "stars": 5714
+    },
+    {
+        "project": "libjpeg-turbo.2.0.x",
+        "repo_addr": "https://github.com/libjpeg-turbo/libjpeg-turbo",
+        "stars": 4000
+    },
+    {
+        "project": "msquic",
+        "repo_addr": "https://github.com/microsoft/msquic",
+        "stars": 4393
+    },
+    {
+        "project": "httpd",
+        "repo_addr": "https://svn.apache.org/repos/asf/httpd/httpd/trunk",
+        "stars": -1
+    },
+    {
+        "project": "nccl",
+        "repo_addr": "https://github.com/NVIDIA/nccl",
+        "stars": 3883
+    },
+    {
+        "project": "liblouis",
+        "repo_addr": "https://github.com/liblouis/liblouis",
+        "stars": 302
+    },
+    {
+        "project": "httpd",
+        "repo_addr": "https://github.com/apache/httpd",
+        "stars": 3736
+    },
+    {
+        "project": "util-linux",
+        "repo_addr": "https://github.com/karelzak/util-linux",
+        "stars": 2926
+    },
+    {
+        "project": "jasper",
+        "repo_addr": "https://github.com/jasper-software/jasper",
+        "stars": 240
+    },
+    {
+        "project": "fuzzing",
+        "repo_addr": "https://github.com/google/fuzzing",
+        "stars": 3680
+    },
+    {
+        "project": "qtbase",
+        "repo_addr": "git://code.qt.io/qt/qtbase.git",
+        "stars": -1
+    },
+    {
+        "project": "cups",
+        "repo_addr": "https://github.com/OpenPrinting/cups",
+        "stars": 1318
+    },
+    {
+        "project": "gdbm",
+        "repo_addr": "https://git.gnu.org.ua/gdbm.git",
+        "stars": -1
+    },
+    {
+        "project": "libteken",
+        "repo_addr": "https://svn.freebsd.org/base/head/sys/teken",
+        "stars": -1
+    },
+    {
+        "project": "LibRaw",
+        "repo_addr": "https://github.com/LibRaw/LibRaw",
+        "stars": 1282
+    }
+]

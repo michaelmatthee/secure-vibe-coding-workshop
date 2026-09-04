@@ -1,0 +1,8 @@
+experimental_instructions_file = "/harnesses/review_prompt.md"
+model_provider = "openai-us"
+
+[model_providers.openai-us]
+name = "OpenAI (US endpoint)"
+base_url = "https://us.api.openai.com/v1"
+env_key = "OPENAI_API_KEY"
+wire_api = "responses"

@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+
+ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)"
+PYTHON="$ROOT/.venv/bin/python"
+
+if [[ ! -x "$PYTHON" ]]; then
+    echo
+    echo "⚠️ ERROR - workshop Python environment is missing."
+    echo "Expected: $PYTHON"
+    exit 2
+fi
+
+cd "$ROOT"
+
+exec "$PYTHON" "$ROOT/workshop_test_security.py"

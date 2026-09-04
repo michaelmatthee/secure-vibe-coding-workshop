@@ -1,0 +1,5 @@
+{
+  "name": "Secure Vibe Coding Workshop",
+
+  "postCreateCommand": ".devcontainer/setup-workshop.sh"
+}

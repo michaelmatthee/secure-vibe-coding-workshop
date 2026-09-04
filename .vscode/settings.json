@@ -1,0 +1,19 @@
+{
+  "chat.agent.networkFilter": true,
+  "chat.agent.allowedNetworkDomains": [],
+  "chat.agent.deniedNetworkDomains": [],
+
+  "chat.agent.sandbox.enabled": "on",
+  "chat.agent.sandbox.allowNetwork": false,
+  "chat.agent.sandbox.retryWithAllowNetworkRequests": false,
+  "chat.agent.sandbox.allowUnsandboxedCommands": false,
+
+  "chat.agent.sandbox.fileSystem.linux": {
+    "denyRead": [
+      "./.git"
+    ],
+    "denyWrite": [
+      "./.git"
+    ]
+  }
+}
