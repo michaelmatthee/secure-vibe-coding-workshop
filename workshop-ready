@@ -1,38 +1,81 @@
 #!/usr/bin/env bash
-set -u
+set -Eeuo pipefail
 
-fail=0
+cd "$(git rev-parse --show-toplevel)"
 
-ok() {
-    printf '✓ %s\n' "$1"
+# Prevent two lifecycle hooks running setup simultaneously.
+exec 9>/tmp/secure-vibe-workshop-setup.lock
+flock -w 600 9
+
+retry() {
+    local max="$1"
+    shift
+
+    local attempt=1
+    local delay=2
+
+    until "$@"; do
+        rc=$?
+
+        if [ "$attempt" -ge "$max" ]; then
+            echo "✗ Failed after $attempt attempts: $*" >&2
+            return "$rc"
+        fi
+
+        echo "Retrying ($attempt/$max): $*"
+        sleep "$delay"
+
+        attempt=$((attempt + 1))
+        delay=$((delay * 2))
+    done
 }
 
-bad() {
-    printf '✗ %s\n' "$1"
-    fail=1
-}
+echo "Preparing workshop environment..."
 
-echo "Checking workshop environment..."
+# Runtime directories are generated, not stored in Git.
+mkdir -p \
+    completions/1065 \
+    completions/910 \
+    completions/9847 \
+    data/1065/patches \
+    data/910/patches \
+    data/9847/patches
 
-if [ -x ".venv/bin/python" ]; then
-    ok "Python environment"
-else
-    bad "Python environment (.venv missing)"
+touch \
+    completions/1065/google-ai-filled-code-in-file-no-security-reminder-perturbed_code_completion.txt \
+    completions/910/google-ai-filled-code-in-file-no-security-reminder-perturbed_code_completion.txt \
+    completions/9847/google-ai-filled-code-in-file-no-security-reminder-perturbed_code_completion.txt
+
+# Install uv only if required.
+if ! command -v uv >/dev/null 2>&1; then
+    echo "Installing uv..."
+
+    installer="$(mktemp)"
+
+    retry 5 curl \
+        -fsSL \
+        --connect-timeout 15 \
+        --max-time 120 \
+        -o "$installer" \
+        https://astral.sh/uv/install.sh
+
+    env UV_UNMANAGED_INSTALL="$HOME/.local/bin" \
+        sh "$installer"
+
+    rm -f "$installer"
 fi
 
-for command in exercise function-test function-debug security-test security-debug; do
-    if [ -x "$command" ]; then
-        ok "$command"
-    else
-        bad "$command is missing or not executable"
-    fi
-done
+export PATH="$HOME/.local/bin:$PATH"
 
-if command -v docker >/dev/null 2>&1 && docker info >/dev/null 2>&1; then
-    ok "Docker runtime"
-else
-    bad "Docker runtime"
-fi
+echo "Preparing Python environment..."
+
+retry 4 uv sync \
+    --locked \
+    --link-mode=copy
+
+echo "Checking Docker..."
+
+retry 5 docker info >/dev/null
 
 images=(
     "n132/arvo:1065-fix"
@@ -42,17 +85,16 @@ images=(
 
 for image in "${images[@]}"; do
     if docker image inspect "$image" >/dev/null 2>&1; then
-        ok "$image"
-    else
-        bad "$image"
+        echo "✓ $image"
+        continue
     fi
+
+    echo "Pulling $image..."
+    retry 4 docker pull "$image"
+
+    docker image inspect "$image" >/dev/null
+    echo "✓ $image"
 done
 
 echo
-
-if [ "$fail" -ne 0 ]; then
-    echo "Workshop environment is not ready yet."
-    exit 1
-fi
-
-echo "✓ Workshop environment ready"
+echo "✓ Workshop environment prepared"
