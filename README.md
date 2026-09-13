@@ -151,17 +151,25 @@ For this first attempt, **do not give it security requirements**.
 
 Use:
 
-> Complete the missing code in `exercise.c`.
->
-> Add code only between:
->
-> `/* ===== YOUR CODE STARTS HERE ===== */`
->
-> and
->
-> `/* ===== YOUR CODE ENDS HERE ===== */`
->
-> Do not change anything outside those markers. Preserve the surrounding behaviour and function signatures.
+### Prompt your AI assistant
+
+Copy and paste the following prompt into your AI assistant:
+
+```text
+Complete the missing code in `exercise.c`.
+
+Add code only between:
+
+`/* ===== YOUR CODE STARTS HERE ===== */`
+
+and
+
+`/* ===== YOUR CODE ENDS HERE ===== */`
+
+Do not change anything outside those markers. Preserve the surrounding behaviour and function signatures.
+```
+
+Then review the generated code before continuing.
 
 ### Using another AI
 

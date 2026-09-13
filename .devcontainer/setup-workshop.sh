@@ -3,70 +3,98 @@ set -Eeuo pipefail
 
 cd "$(git rev-parse --show-toplevel)"
 
-echo
-echo "════════════════════════════════════════"
-echo " Preparing Secure Vibe Coding Workshop"
-echo "════════════════════════════════════════"
-echo
+# Prevent two lifecycle hooks running setup simultaneously.
+exec 9>/tmp/secure-vibe-workshop-setup.lock
+flock -w 600 9
 
-echo "Setting workshop file permissions..."
+retry() {
+    local max="$1"
+    shift
 
+    local attempt=1
+    local delay=2
+
+    until "$@"; do
+        rc=$?
+
+        if [ "$attempt" -ge "$max" ]; then
+            echo "✗ Failed after $attempt attempts: $*" >&2
+            return "$rc"
+        fi
+
+        echo "Retrying ($attempt/$max): $*"
+        sleep "$delay"
+
+        attempt=$((attempt + 1))
+        delay=$((delay * 2))
+    done
+}
+
+echo "Preparing workshop environment..."
+
+# Runtime directories are generated, not stored in Git.
 mkdir -p \
-  completions/1065 \
-  completions/910 \
-  completions/9847
+    completions/1065 \
+    completions/910 \
+    completions/9847 \
+    data/1065/patches \
+    data/910/patches \
+    data/9847/patches
 
 touch \
-  completions/1065/google-ai-filled-code-in-file-no-security-reminder-perturbed_code_completion.txt \
-  completions/910/google-ai-filled-code-in-file-no-security-reminder-perturbed_code_completion.txt \
-  completions/9847/google-ai-filled-code-in-file-no-security-reminder-perturbed_code_completion.txt
+    completions/1065/google-ai-filled-code-in-file-no-security-reminder-perturbed_code_completion.txt \
+    completions/910/google-ai-filled-code-in-file-no-security-reminder-perturbed_code_completion.txt \
+    completions/9847/google-ai-filled-code-in-file-no-security-reminder-perturbed_code_completion.txt
 
-chmod 755 \
-  function-test \
-  function-debug \
-  security-test \
-  security-debug \
-  .devcontainer/setup-workshop.sh
-
-chmod 644 \
-  workshop_test_function.py \
-  workshop_test_security.py \
-  workshop_baseline.json \
-  .devcontainer/devcontainer.json \
-  completions/1065/google-ai-filled-code-in-file-no-security-reminder-perturbed_code_completion.txt \
-  completions/910/google-ai-filled-code-in-file-no-security-reminder-perturbed_code_completion.txt \
-  completions/9847/google-ai-filled-code-in-file-no-security-reminder-perturbed_code_completion.txt
-
+# Install uv only if required.
 if ! command -v uv >/dev/null 2>&1; then
     echo "Installing uv..."
-    curl -LsSf https://astral.sh/uv/install.sh \
-      | env UV_UNMANAGED_INSTALL="$HOME/.local/bin" sh
+
+    installer="$(mktemp)"
+
+    retry 5 curl \
+        -fsSL \
+        --connect-timeout 15 \
+        --max-time 120 \
+        -o "$installer" \
+        https://astral.sh/uv/install.sh
+
+    env UV_UNMANAGED_INSTALL="$HOME/.local/bin" \
+        sh "$installer"
+
+    rm -f "$installer"
 fi
 
 export PATH="$HOME/.local/bin:$PATH"
 
-echo "[1/2] Preparing Python environment..."
-uv sync --link-mode=copy
+echo "Preparing Python environment..."
 
-echo
-echo "[2/2] Preparing workshop Docker images..."
+retry 4 uv sync \
+    --locked \
+    --link-mode=copy
+
+echo "Checking Docker..."
+
+retry 5 docker info >/dev/null
 
 images=(
-  "n132/arvo:1065-fix"
-  "n132/arvo:910-fix"
-  "n132/arvo:9847-fix"
+    "n132/arvo:1065-fix"
+    "n132/arvo:910-fix"
+    "n132/arvo:9847-fix"
 )
 
 for image in "${images[@]}"; do
     if docker image inspect "$image" >/dev/null 2>&1; then
-        echo "✓ $image already available"
-    else
-        echo "Pulling $image..."
-        docker pull "$image"
+        echo "✓ $image"
+        continue
     fi
+
+    echo "Pulling $image..."
+    retry 4 docker pull "$image"
+
+    docker image inspect "$image" >/dev/null
+    echo "✓ $image"
 done
 
 echo
-echo "════════════════════════════════════════"
-echo " Workshop environment ready"
-echo "════════════════════════════════════════"
+echo "✓ Workshop environment prepared"

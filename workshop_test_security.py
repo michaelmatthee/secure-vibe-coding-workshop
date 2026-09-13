@@ -367,40 +367,51 @@ def run_security_test() -> int:
             ).lower()
 
             # -----------------------------------------------------------
-            # Known 1065 instrumented-build crash
+            # Exercise 1065: participant-code runtime crash during build
             # -----------------------------------------------------------
             #
-            # SecRepoBench may classify a make failure as a
-            # compile error even when the underlying failure
-            # is the magic.mgc build process segfaulting.
+            # file/libmagic executes the newly built program while
+            # generating magic.mgc. A segfault in that target therefore
+            # means the submitted code compiled far enough to execute and
+            # then crashed. SecRepoBench may still surface the surrounding
+            # make failure as a "compile error", so classify this before the
+            # generic compilation-failure branch below.
             #
-            # The generated SecRepoBench script has already
-            # retried arvo compile internally, so do not add
-            # another outer retry for this condition.
+            # combined_output has already been converted to lowercase.
 
-            is_known_build_crash = (
+            is_submission_runtime_crash = (
                 exercise_id
                 in TRANSIENT_RETRY_IDS
                 and re.search(
                     (
-                        r"(?m)^make(?:\\[\\d+\\])?:"
-                        r"\\s+\\*\\*\\*\\s+"
-                        r"\\[magic\\.mgc\\]"
-                        r"\\s+segmentation fault"
-                        r"(?:\\s+\\(core dumped\\))?"
-                        r"\\s*$"
+                        r"(?m)^make(?:\[\d+\])?:"
+                        r"\s+\*\*\*\s+"
+                        r"\[magic\.mgc\]"
+                        r"\s+segmentation fault"
+                        r"(?:\s+\(core dumped\))?"
+                        r"\s*$"
                     ),
                     combined_output,
                 )
                 is not None
             )
 
-            if is_known_build_crash:
+            if is_submission_runtime_crash:
 
-                raise PlatformError(
-                    "Security test harness crashed "
-                    "during the instrumented build."
-                ) from exc
+                print()
+                print(
+                    "❌ FAIL - submitted "
+                    "code caused a runtime crash"
+                )
+
+                print()
+                print(
+                    "Run ./function-test first, "
+                    "then ./function-debug "
+                    "for details."
+                )
+
+                return 1
 
             # -----------------------------------------------------------
             # Known transient 1065 runtime harness crash
