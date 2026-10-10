@@ -1,0 +1,18 @@
+
+Engineer A opens their AI assistant and types: “Add rate limiting to the payment endpoint, max 10 requests per minute.” The agent produces a response in 30 seconds. It creates a middleware function that uses a sliding-window algorithm keyed on the client IP address, installs a Redis client dependency to track counts, and adds the middleware to the route. The code looks clean. The tests the agent generates pass. Engineer A reviews the output, sees nothing obviously wrong, and merges the pull request.
+
+An incident surfaces three days later. A user behind a corporate NAT gateway, where hundreds of employees share a single IP address, is being rate-limited even though they have barely used the API. Meanwhile, a user with a dynamic residential IP who has been submitting fraudulent payment attempts is bypassing the limit entirely by reconnecting through a different address. The implementation was technically correct for the problem as stated. The problem was never stated correctly.
+
+Engineer B receives the same ticket. Before opening the AI assistant, they spend 10 minutes writing. They note that:
+
+rate limiting must be per authenticated user, not per IP, because the existing user base includes corporate customers behind shared NATs
+
+the existing auth middleware already attaches a user_id to every authenticated request, so the rate limiter should key on that
+
+the retry logic for idempotent payment operations must not count toward the limit if the request carries the same idempotency key
+
+the existing observability stack expects rate limit events to emit a specific metric format, and they paste in the format from the metrics conventions document
+
+the Redis instance available for this service is in the same availability zone
+
+the team has an approved wrapper library for cache access.
