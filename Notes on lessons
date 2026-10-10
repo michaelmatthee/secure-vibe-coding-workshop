@@ -1,6 +1,6 @@
 AI Native Software Engineering and Spec Driven Development
 
-
+Story:
 Engineer A opens their AI assistant and types: “Add rate limiting to the payment endpoint, max 10 requests per minute.” The agent produces a response in 30 seconds. It creates a middleware function that uses a sliding-window algorithm keyed on the client IP address, installs a Redis client dependency to track counts, and adds the middleware to the route. The code looks clean. The tests the agent generates pass. Engineer A reviews the output, sees nothing obviously wrong, and merges the pull request.
 
 An incident surfaces three days later. A user behind a corporate NAT gateway, where hundreds of employees share a single IP address, is being rate-limited even though they have barely used the API. Meanwhile, a user with a dynamic residential IP who has been submitting fraudulent payment attempts is bypassing the limit entirely by reconnecting through a different address. The implementation was technically correct for the problem as stated. The problem was never stated correctly.
@@ -18,3 +18,11 @@ the existing observability stack expects rate limit events to emit a specific me
 the Redis instance available for this service is in the same availability zone
 
 the team has an approved wrapper library for cache access.
+
+Future looking:
+AI changes what engineers spend their time on. It does not make engineering unnecessary. The demand for people who can define complex systems, verify that they work, and own their quality is not going down. What is changing is the tools to which those people have access.
+
+Frederick P. Brooks on the Essence of Software Engineering, there's no silver bullet
+
+
+
