@@ -20,6 +20,8 @@ the Redis instance available for this service is in the same availability zone
 the team has an approved wrapper library for cache access.
 
 Future looking:
+Exceptional engineers in the AI era are those who can define the right problem, design the right system, and own the quality of the result.
+
 AI changes what engineers spend their time on. It does not make engineering unnecessary. The demand for people who can define complex systems, verify that they work, and own their quality is not going down. What is changing is the tools to which those people have access.
 Frederick P. Brooks on the Essence of Software Engineering, there's no silver bullet -- the hard problem of software engineering is what we say, not how to say it. 
 
@@ -48,6 +50,9 @@ https://en.wikipedia.org/wiki/Jevons_paradox
 
 Why specs?:
 Discuss embeddings, mathematical calculations on embeddings, and how related concepts emerge as we conduct regression. King, Queen, male and female
+
+https://jsdevai.com/pillars/spec-driven-development/
+https://github.com/alfonsograziano/ai-native-engineering
 
 
 
