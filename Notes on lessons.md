@@ -40,6 +40,7 @@ HITL is fastest when we do it at specification time, before the agent generates 
 
 you need the skills that sit at the intersection of judgment, communication, and system ownership
 
+<img width="1886" height="1074" alt="image" src="https://github.com/user-attachments/assets/3f862a3f-b20a-46ce-aba2-e513dda10ed7" />
 
 
 Why specs?:
