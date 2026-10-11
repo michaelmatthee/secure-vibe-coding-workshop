@@ -21,11 +21,30 @@ the team has an approved wrapper library for cache access.
 
 Future looking:
 AI changes what engineers spend their time on. It does not make engineering unnecessary. The demand for people who can define complex systems, verify that they work, and own their quality is not going down. What is changing is the tools to which those people have access.
+Frederick P. Brooks on the Essence of Software Engineering, there's no silver bullet -- the hard problem of software engineering is what we say, not how to say it. 
 
-Frederick P. Brooks on the Essence of Software Engineering, there's no silver bullet
+The traditional software-engineering workflow was designed when the bottleneck was implementation speed. A senior engineer’s primary value was in the quality and speed of their implementation across this chain.
+However, today, implementation speed is no longer a limitation -- AI can produce a first pass within minutes. The constraint shifts upstream, to requirement clarity and specification quality; and downstream to verify the implementation meets those. 
+Also, before we owned the code implementation. Today AI writes the code, we own the decisions. Decisions guided by our judgement to either accept or reject a work artefact. Historically, we'd refine our understanding of the problem during coding implementation. 
+A good design emerged as we played around in the code for a while, we got our hands dirty. However, AI doesn't accumulate understanding the way we do, if a task is underspecified it makes assumptions to complete the task (sometimes the quickest way to solve a problem, not necessarily the best way to solve a problem).
+
+Barry Boehm’s analysis of 1970s TRW and IBM projects, reported in his book Software Engineering Economics (Prentice Hall, 1981), showed that the relative cost of fixing defects increases sharply the later they are found.
+In large projects, he found, a requirements defect discovered in operation can cost up to two orders of magnitude more to correct than one caught during the requirements or early design phase. AI amplifies this ratio, because fast generation means you can accumulate a large volume of misaligned output quickly before anyone notices.
+The hard problem to solve for: ALIGNMENT!!!
+
+Human in the loop (calibrated automation over maximum automation):
+- Reviewing specs before execution
+- Reviewing output before integration
+- Escalating high-risk decisions
+HITL is fastest when we do it at specification time, before the agent generates anything. A 10-minute spec review can prevent hours of correcting a misaligned implementation
+
+you need the skills that sit at the intersection of judgment, communication, and system ownership
+
+
 
 Why specs?:
 Discuss embeddings, mathematical calculations on embeddings, and how related concepts emerge as we conduct regression. King, Queen, male and female
+
 
 
 
