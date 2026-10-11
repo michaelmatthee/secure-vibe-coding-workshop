@@ -42,6 +42,9 @@ you need the skills that sit at the intersection of judgment, communication, and
 
 <img width="1886" height="1074" alt="image" src="https://github.com/user-attachments/assets/3f862a3f-b20a-46ce-aba2-e513dda10ed7" />
 
+https://martinfowler.com/articles/harness-engineering.html
+https://martinfowler.com/articles/exploring-gen-ai/13-role-of-developer-skills.html
+https://en.wikipedia.org/wiki/Jevons_paradox
 
 Why specs?:
 Discuss embeddings, mathematical calculations on embeddings, and how related concepts emerge as we conduct regression. King, Queen, male and female
