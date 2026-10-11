@@ -1,5 +1,22 @@
 AI Native Software Engineering and Spec Driven Development
 
+https://openai.com/index/harness-engineering/
+
+Context engineering:
+what matters most isn’t how clever your prompt is. It’s whether the model receives the right information to reason well. Your system prompt, your rules files, the code snippets you reference, the tool definitions the runtime injects, the conversation history that accumulates over the session: all of it lands in the context window and shapes what the agent does next.
+Context engineering is the discipline of making that context work well. It means deciding what to include and what to leave out, structuring information so the model’s attention lands where it matters, and keeping the context accurate as sessions evolve and codebases change.
+The agent that works well in your codebase today isn’t a better model than the one that made mistakes last month. It’s the same model with better context.
+Rules file: A rules file committed to your repository benefits every engineer on the team, in every session, automatically. 
+Skill file: A skill written once for a recurring task type provides its benefits every time that task is performed.
+
+Prompt engineering is a local optimization: tuning one input for one interaction. 
+Context engineering is a systems discipline: managing the full state the model sees across an entire session, and across all the sessions your team runs over the lifetime of a project.
+
+The model’s attention capacity, its ability to weigh every piece of information appropriately, gets stretched thinner as the context grows longer.
+We only have about 50% of our context window that's effective. Context rot, earlier insights are sandwiched in the middle between static prompts at the start and recent output at the end. 
+As humans, we rely on our second brain to safekeep and record information. AI succumbs to the same limitation, it also needs to refer to external files. 
+
+
 Story:
 Engineer A opens their AI assistant and types: “Add rate limiting to the payment endpoint, max 10 requests per minute.” The agent produces a response in 30 seconds. It creates a middleware function that uses a sliding-window algorithm keyed on the client IP address, installs a Redis client dependency to track counts, and adds the middleware to the route. The code looks clean. The tests the agent generates pass. Engineer A reviews the output, sees nothing obviously wrong, and merges the pull request.
 
