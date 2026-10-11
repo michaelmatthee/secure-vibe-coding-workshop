@@ -15,7 +15,17 @@ Context engineering is a systems discipline: managing the full state the model s
 The model’s attention capacity, its ability to weigh every piece of information appropriately, gets stretched thinner as the context grows longer.
 We only have about 50% of our context window that's effective. Context rot, earlier insights are sandwiched in the middle between static prompts at the start and recent output at the end. 
 As humans, we rely on our second brain to safekeep and record information. AI succumbs to the same limitation, it also needs to refer to external files. 
+But too much context also degrades our model. You want enough context for the agent to reason accurately, and you want it to be signal, not noise.
 
+System prompt: sets the model’s identity, goals, behavioral constraints, tone, and output expectations. Every word in the system prompt occupies context in every interaction, whether relevant or not. Precision matters.
+Rules: The probability of a model following all rules simultaneously is approximately p^N, where N is the number of independently verifiable instructions and p is the per-rule adherence rate. With a realistic per-rule adherence of 95%, five rules yield 77% all-rules compliance. Ten rules drop to 60%. Twenty rules drop to 36%. In plain terms: every rule you add to a system prompt reduces the probability that all rules will be followed.
+
+Easy Approach to Requirements Syntax - https://alistairmavin.com/ears/
+ - ubiquitous rules: the system shall <action>
+ - event-driven rules: when <trigger>, the system shall <action>
+ - state-driven rules: while <condition>, the system shall <action>
+ - unwanted-behavior rules: if <situation>, the system shall <response>
+EARS rules are testable
 
 Story:
 Engineer A opens their AI assistant and types: “Add rate limiting to the payment endpoint, max 10 requests per minute.” The agent produces a response in 30 seconds. It creates a middleware function that uses a sliding-window algorithm keyed on the client IP address, installs a Redis client dependency to track counts, and adds the middleware to the route. The code looks clean. The tests the agent generates pass. Engineer A reviews the output, sees nothing obviously wrong, and merges the pull request.
