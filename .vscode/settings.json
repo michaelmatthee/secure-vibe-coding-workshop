@@ -1,19 +1,22 @@
 {
-  "chat.agent.networkFilter": true,
-  "chat.agent.allowedNetworkDomains": [],
-  "chat.agent.deniedNetworkDomains": [],
-
   "chat.agent.sandbox.enabled": "on",
-  "chat.agent.sandbox.allowNetwork": false,
-  "chat.agent.sandbox.retryWithAllowNetworkRequests": false,
+  "chat.agent.sandbox.network.allowNetwork": false,
+  "chat.agent.sandbox.network.allowLocalNetwork": false,
   "chat.agent.sandbox.allowUnsandboxedCommands": false,
 
-  "chat.agent.sandbox.fileSystem.linux": {
-    "denyRead": [
-      "./.git"
-    ],
-    "denyWrite": [
-      "./.git"
+  "chat.agent.sandbox.fileSystem.userConfiguredPaths": {
+    "readwritePaths": [],
+    "readonlyPaths": [],
+    "deniedPaths": [
+      "/workspaces/secure-vibe-coding-workshop/.git"
     ]
-  }
+  },
+
+  "chat.agent.sandbox.fileSystem.allowDevToolAccess": false,
+  "chat.agent.sandbox.mcpServers": true,
+  "chat.agent.sandbox.lspServers": true,
+  "chat.agent.sandbox.credentials.authenticategit": false,
+  "chat.agent.sandbox.credentials.authenticategh": false,
+
+  "chat.permissions.default": "default"
 }
