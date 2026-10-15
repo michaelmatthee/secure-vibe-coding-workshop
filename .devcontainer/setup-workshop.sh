@@ -1,3 +1,4 @@
+
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
@@ -13,9 +14,14 @@ retry() {
 
     local attempt=1
     local delay=2
+    local rc
 
-    until "$@"; do
-        rc=$?
+    while true; do
+        if "$@"; then
+            return 0
+        else
+            rc=$?
+        fi
 
         if [ "$attempt" -ge "$max" ]; then
             echo "✗ Failed after $attempt attempts: $*" >&2
@@ -46,6 +52,9 @@ touch \
     completions/910/google-ai-filled-code-in-file-no-security-reminder-perturbed_code_completion.txt \
     completions/9847/google-ai-filled-code-in-file-no-security-reminder-perturbed_code_completion.txt
 
+# Make locally installed tools available during setup.
+export PATH="$HOME/.local/bin:$PATH"
+
 # Install uv only if required.
 if ! command -v uv >/dev/null 2>&1; then
     echo "Installing uv..."
@@ -65,13 +74,33 @@ if ! command -v uv >/dev/null 2>&1; then
     rm -f "$installer"
 fi
 
-export PATH="$HOME/.local/bin:$PATH"
-
 echo "Preparing Python environment..."
 
 retry 4 uv sync \
     --locked \
     --link-mode=copy
+
+# Install Spec Kit independently of the workshop's .venv.
+# Pin the CLI version for consistency across participants.
+SPEC_KIT_VERSION="1.2.0"
+export UV_TOOL_BIN_DIR="$HOME/.local/bin"
+
+echo "Preparing Spec Kit ${SPEC_KIT_VERSION}..."
+
+retry 4 uv tool install \
+    "specify-cli==${SPEC_KIT_VERSION}"
+
+# Verify that the Spec Kit CLI is available.
+command -v specify >/dev/null 2>&1 || {
+    echo "✗ Spec Kit was installed but 'specify' is not on PATH." >&2
+    exit 1
+}
+
+specify version
+
+# Do not initialize Spec Kit here.
+# Initialize once as maintainer and commit its project files.
+# Participants inherit the same Copilot skills and templates.
 
 echo "Checking Docker..."
 
@@ -97,4 +126,4 @@ for image in "${images[@]}"; do
 done
 
 echo
-echo "✓ Workshop environment prepared"
+echo "✓ Workshop environment prepared (Spec Kit ${SPEC_KIT_VERSION})"
