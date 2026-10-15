@@ -1,4 +1,9 @@
-*
+# Runtime directories generated on Codespace startup
+completions/
+data/
 
-!.vscode/
-!.vscode/settings.json
+# Python bytecode
+__pycache__/
+
+# Workshop runtime output
+workshop-results/
