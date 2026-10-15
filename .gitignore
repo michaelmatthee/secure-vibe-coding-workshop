@@ -7,3 +7,12 @@ __pycache__/
 
 # Workshop runtime output
 workshop-results/
+
+# Spec Kit runtime artifacts
+.specify/memory/
+.specify/specs/
+.specify/bugs/
+.specify/assessments/
+
+# Exercise runtime specs
+specs/
