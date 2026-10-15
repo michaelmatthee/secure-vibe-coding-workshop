@@ -46,7 +46,7 @@ touch \
     completions/910/google-ai-filled-code-in-file-no-security-reminder-perturbed_code_completion.txt \
     completions/9847/google-ai-filled-code-in-file-no-security-reminder-perturbed_code_completion.txt
 
-# Make locally installed tools available for the rest of this script.
+# Must come before uv check so newly installed uv is found.
 export PATH="$HOME/.local/bin:$PATH"
 
 # Install uv only if required.
@@ -74,8 +74,6 @@ retry 4 uv sync \
     --locked \
     --link-mode=copy
 
-# Install Spec Kit independently of the workshop's .venv.
-# Pin the CLI version for consistency across participants.
 SPEC_KIT_VERSION="1.2.0"
 export UV_TOOL_BIN_DIR="$HOME/.local/bin"
 
@@ -84,7 +82,6 @@ echo "Preparing Spec Kit ${SPEC_KIT_VERSION}..."
 retry 4 uv tool install \
     "specify-cli==${SPEC_KIT_VERSION}"
 
-# Verify that the Spec Kit CLI is available.
 command -v specify >/dev/null 2>&1 || {
     echo "✗ Spec Kit was installed but 'specify' is not on PATH." >&2
     exit 1
